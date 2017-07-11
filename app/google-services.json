@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "689645778411",
+    "firebase_url": "https://the-american-creed.firebaseio.com",
+    "project_id": "the-american-creed",
+    "storage_bucket": "the-american-creed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689645778411:android:ae9ba4667be1d46c",
+        "android_client_info": {
+          "package_name": "casper.theamericancreed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689645778411-3v9v0c0vb0rgmbbg5dis8ualentrf9j5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL0wVInmU7Vwj_QY_1np-Pmb50CvHLmLA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

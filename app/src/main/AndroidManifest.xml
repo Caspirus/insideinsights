@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="casper.theamericancreed">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/i_i_hdpi"
+        android:label="inside insights"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Login"
+            android:theme="@style/Theme.Design.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ChatRoom"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".ChatSelect"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".FrontPage"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".KnowledgeBase" />
+        <activity android:name=".CurrentEvent" />
+        <activity android:name=".Ideology" />
+        <activity android:name=".Registration"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".AboutUs">
+        </activity>
+    </application>
+
+</manifest>

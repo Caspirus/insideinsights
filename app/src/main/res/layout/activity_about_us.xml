@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="3"
+    android:padding="5dp"
+    tools:context="casper.theamericancreed.AboutUs">
+
+    <TextView
+        android:id="@+id/textMissionStatement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Our Mission Statement"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+    <TextView
+        android:id="@+id/textViewMission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:typeface="normal"
+        android:gravity="left"
+        android:text="With apathy on the rise among the youth, the need for an efficacious news source has never been higher. The primary purpose of inside insights is to engage students in the issues surrounding America’s governmental system. This means properly informing the reader about the events of today without any type of partisanship in mind. Inside insights aims to develop the analytical and networking skills of the student to create a citizen who will care to solve the problems of tomorrow. Collaboration is central to this endeavor, as inside insights creates a unique community of deep thinkers.
+" />
+
+    <TextView
+        android:id="@+id/textHowToUse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="How to Use"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:weightSum="3">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            app:srcCompat="@drawable/knowledge_base_icon" />
+
+        <TextView
+            android:id="@+id/textViewHow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:typeface="normal"
+            android:layout_weight="1"
+            android:text="Knowledge Base Section"
+            android:gravity="center" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:weightSum="3">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            app:srcCompat="@drawable/current_event_logo" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:typeface="normal"
+            android:layout_weight="1"
+            android:text="Current Event Section"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:weightSum="3">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            app:srcCompat="@drawable/ideology_icon" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:typeface="normal"
+            android:layout_weight="1"
+            android:text="Ideology Section"
+            android:gravity="center" />
+    </LinearLayout>
+</LinearLayout>
