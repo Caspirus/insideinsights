@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:padding="5dp"
+    tools:context="casper.theamericancreed.Profile">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_weight="0.15">
+
+        <ImageView
+            android:id="@+id/imageViewProfilePic"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.30"
+            app:srcCompat="@drawable/blank_profile_pic" />
+
+        <TextView
+            android:id="@+id/textViewProfileName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.75"
+            android:text="First, Last Name"
+            android:textSize="20sp"
+            android:paddingLeft="10dp"
+            android:gravity="left|center"
+            android:textColor="#000000"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewAlias"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:text="Alias"
+        android:paddingLeft="10dp"
+        android:textSize="20sp"
+        android:gravity="left|center"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:text="Email"
+        android:paddingLeft="10dp"
+        android:textSize="20sp"
+        android:gravity="left|center"
+        android:textColor="#000000" />
+
+</LinearLayout>

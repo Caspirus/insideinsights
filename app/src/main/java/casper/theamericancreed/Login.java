@@ -57,32 +57,6 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onStart()
-    {
-        super.onStart();
-        firebaseAuth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-                update(currentUser);
-            }
-        });
-    }
-
-    private void update (FirebaseUser user)
-    {
-        if (user!=null)
-        {
-            progressDialog.setMessage("Logging in...");
-            progressDialog.show();
-            Intent intent = new Intent(Login.this, FrontPage.class);
-            intent.putExtra("isLogin", "1");
-            intent.putExtra("userEmail", user.getEmail().toString());
-            startActivity(intent);
-        }
-    }
-
     private void userLogin ()
     {
         String email = userEmail.getText().toString();
@@ -112,7 +86,8 @@ public class Login extends AppCompatActivity {
                             finish();
                             Intent intent = new Intent(getApplicationContext(), FrontPage.class);
                             intent.putExtra("isLogin", "1");
-                            intent.putExtra("userEmail", userEmail.getText().toString());
+                            String[] split = userEmail.getText().toString().split("@");
+                            intent.putExtra("key", split[0]);
                             startActivity(intent);
                         }
                         else

@@ -32,12 +32,14 @@ public class ChatSelect extends AppCompatActivity {
     private ListView allRooms;
     private ArrayList<String> arrayList = new ArrayList<>();
     private ArrayAdapter arrayAdapter;
+    private String chatAlias;
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference().getRoot();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
         setContentView(R.layout.activity_chat_select);
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users/"+getIntent().getExtras().get("key").toString());
 
         addRoom = (ImageButton) findViewById(R.id.imageButtonAddRoom);
         roomName = (EditText) findViewById(R.id.editTextAddRoom);
@@ -77,12 +79,29 @@ public class ChatSelect extends AppCompatActivity {
             }
         });
 
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Iterator i = dataSnapshot.getChildren().iterator();
+                while (i.hasNext())
+                {
+                    chatAlias = ((DataSnapshot)i.next()).getValue().toString();
+                    break;
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         allRooms.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent (ChatSelect.this, ChatRoom.class);
                 intent.putExtra("roomName", ((TextView)view).getText().toString());
-                intent.putExtra("userEmail", getIntent().getExtras().get("userEmail").toString());
+                intent.putExtra("alias", chatAlias);
                 startActivity(intent);
             }
         });

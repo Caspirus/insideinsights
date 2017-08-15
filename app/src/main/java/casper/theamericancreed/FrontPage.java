@@ -4,8 +4,12 @@ import android.app.ActivityGroup;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.Button;
 
@@ -15,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class FrontPage extends ActivityGroup {
 
     private TabHost tabHost;
+    private ImageButton profileSettings;
     private Button liveChat, signOut;
     private String hasLogin;
     private FirebaseAuth firebaseAuth;
@@ -23,6 +28,7 @@ public class FrontPage extends ActivityGroup {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front_page);
 
+        profileSettings = (ImageButton) findViewById(R.id.imageButtonProfileSettings);
         liveChat = (Button) findViewById(R.id.buttonLiveChat);
         signOut = (Button) findViewById(R.id.buttonSignOut);
         tabHost = (TabHost) findViewById(R.id.tabHost);
@@ -52,6 +58,21 @@ public class FrontPage extends ActivityGroup {
         tabHost.addTab(spec2);
         tabHost.addTab(spec3);
 
+        profileSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (hasLogin.equals("0"))
+                {
+                    noLogin();
+                }
+                else {
+                    Intent intent = new Intent(FrontPage.this, Profile.class);
+                    intent.putExtra("key", getIntent().getExtras().get("key").toString());
+                    startActivity(intent);
+                }
+            }
+        });
+
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +90,7 @@ public class FrontPage extends ActivityGroup {
                 }
                 else if (hasLogin.equals("1")) {
                     Intent intent = new Intent(FrontPage.this, ChatSelect.class);
-                    intent.putExtra("userEmail", getIntent().getExtras().get("userEmail").toString());
+                    intent.putExtra("key", getIntent().getExtras().get("key").toString());
                     startActivity(intent);
                 }
             }
@@ -79,7 +100,7 @@ public class FrontPage extends ActivityGroup {
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Permission Denied");
-        builder.setMessage("You must be logged in to chat! Proceed to Login?");
+        builder.setMessage("You must be logged in! Proceed to Login?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

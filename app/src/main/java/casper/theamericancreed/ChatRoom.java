@@ -45,11 +45,10 @@ public class ChatRoom extends AppCompatActivity {
         message = (EditText) findViewById(R.id.editTextSendMessage);
         scrollView = (ScrollView) findViewById(R.id.scrollView);
 
-        userName = getIntent().getExtras().get("userEmail").toString();
+        userName = getIntent().getExtras().get("alias").toString();
         roomName = getIntent().getExtras().get("roomName").toString();
         root = FirebaseDatabase.getInstance().getReference().child(roomName);
 
-        setTitle("Room: "+roomName);
         scrollToBottom();
 
         send.setOnClickListener(new View.OnClickListener() {

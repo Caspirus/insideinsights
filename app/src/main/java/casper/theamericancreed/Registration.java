@@ -15,22 +15,36 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Registration extends AppCompatActivity {
 
     private Button register;
-    private EditText enterEmail, enterPassword, confirmPassword;
+    private EditText enterEmail, enterPassword, confirmPassword, enterFirstName, enterLastName, enterUsername;
+    private String tempKey;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
         setContentView(R.layout.activity_registration);
 
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
         register = (Button) findViewById(R.id.buttonRegisterNewUser);
+        enterFirstName = (EditText) findViewById(R.id.editTextEnterFirstName);
+        enterLastName = (EditText) findViewById(R.id.editTextEnterLastName);
+        enterUsername = (EditText) findViewById(R.id.editTextEnterAlias);
         enterEmail = (EditText) findViewById(R.id.editTextEnterEmail);
         enterPassword = (EditText) findViewById(R.id.editTextPassword);
         confirmPassword = (EditText) findViewById(R.id.editTextVerifyPassword);
@@ -49,6 +63,9 @@ public class Registration extends AppCompatActivity {
         String password = enterPassword.getText().toString();
         String verifyPassword = confirmPassword.getText().toString();
 
+        //Handle all possible exceptions
+        //Handle duplicate usernames
+        //Handle blank fields
         if (email.isEmpty())
         {
             Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_LONG).show();
@@ -89,6 +106,10 @@ public class Registration extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful())
                         {
+                            String[] split = enterEmail.getText().toString().split("@");
+                            databaseReference.child(split[0]).setValue(new User(enterEmail.getText().toString(),
+                                    enterFirstName.getText().toString(), enterLastName.getText().toString(), enterUsername.getText().toString(),
+                                    "http://www.clker.com/cliparts/B/R/Y/m/P/e/blank-profile-hi.png"));
                             Toast.makeText(Registration.this, "You have been registered!", Toast.LENGTH_LONG).show();
                             FirebaseUser currentUser = firebaseAuth.getCurrentUser();
                             update (currentUser);
@@ -110,7 +131,8 @@ public class Registration extends AppCompatActivity {
             progressDialog.show();
             Intent intent = new Intent(Registration.this, FrontPage.class);
             intent.putExtra("isLogin", "1");
-            intent.putExtra("userEmail", user.getEmail().toString());
+            String[] split = enterEmail.getText().toString().split("@");
+            intent.putExtra("key", split[0]);
             startActivity(intent);
         }
     }

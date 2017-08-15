@@ -2,13 +2,23 @@ package casper.theamericancreed;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 public class CurrentEvent extends AppCompatActivity {
 
+    private TextView article;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
         setContentView(R.layout.activity_current_event);
+
+        article = (TextView) findViewById(R.id.textViewArticle);
+
+        article.setText("\tThe 2017 G20 Summit, a two-day annual meeting between twenty of the world’s largest economic powers, was held in Hamburg, Germany on the seventh and eighth of July. The agenda for this year’s highly anticipated summit addressed issues such as climate change, free trade, and mass demographic changes. The attendees of this event, such as Donald Trump, Vladimir Putin, Angela Merkel, Li Keqiang, and other world leaders, had obvious differences about the issues on the agenda. It was widely agreed by the participants of the summit that the United States did not share the same priorities as the rest of the G20 leaders. \n" +
+                "\tSince the United States’ recent withdrawal from the Paris Agreement, there has been much controversy over the issue of climate change. While the United States ceased all commitment to the agreement, the G20 states emphasized their commitment to, and the importance of, the Paris Agreement. Countries, such as China and India, which are the world’s largest producers of pollution, agreed to utilize cleaner energy. This effort will reduce the negative effects of pollution, thus filling the gap left by the United States in their withdrawal from the agreement. Donald Trump’s decision to ignore climate change is isolating the United States’ political landscape. Not only is it causing diplomatic tension between world leaders, but he is also instigating social unrest. Mass anti-globalization protests erupted during the summit, for example, as a direct result of Trump’s fallible tendencies as a leader. \n" +
+                "\tIn addition to climate change, the United States declared their unpopular position on free trade and demographic changes. Trump claimed that each country should concern itself with their own national interests, as oppose to the interest of others. This statement develops the United States’ isolation, specifically their diplomatic interests in other countries. Although this was the general attitude conveyed by Trump, the United States did engage in valuable dialogue with Russia. Trump and Russian President Vladimir Putin met to discuss the recent “destabilizing actions” in Europe, as well as issues surrounding Ukraine and Syria. They agreed to declare a cease fire in Syria, and recognized that “the U.S and Russia can only secure their national interests if they work together” said Sergey Lavrov, the Foreign Minister of Russia. \n" +
+                "\tAlthough this year’s G20 Summit had positive effects for most parties involved, the event had overwhelmingly negative affect for the United States. By creating an isolationist atmosphere within world politics, the economic and political state of America is in danger. The president of foreign relations, Richard Haass, explained how the isolation of America in global politics makes trade, one of the most important economic activities in the United States, more susceptible to deterioration. Considering how the United States’ economy is almost entirely dependent on trade, damaging international relations would prove to be disastrous in the long-run. By opposing political allies on critical issues such as climate change, Trump is likely to experience future conflict in garnering legitimacy from other world powers.  \n" +
+                "\tBecause the 2017 G20 Summit is one of the first international events that will separate the United States from the rest of the world, it is important, as citizens of America, to start acting now. The disastrous road Trump is building will not only harm America’s economy, but it will also put her freedom in jeopardy. By persuading local communities to use cleaner energy and more environmental friendly practices, you can continue to do your part in helping the cause of climate change. Mobilization, in the form of social unrest, is also key to solving these problems. Thus, a very effective way of capturing the public’s gaze is through mass protest. Numbers are important for raising attention to any issue corrupted by the dominators in America. Protests must be large and influential if you want to see the regime falter. In the same way protests of the Civil Rights Movement were able to enact constructive social change, so too can they be used in the modern struggle to change the direction of American politics.  \n" +
+                "\n");
     }
 }

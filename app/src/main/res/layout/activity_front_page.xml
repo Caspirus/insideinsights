@@ -14,7 +14,7 @@
         android:id="@+id/tabHost"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="0.9">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,21 +60,30 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="2"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:weightSum="3"
         android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/imageButtonProfileSettings"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/gear"/>
 
         <Button
             android:id="@+id/buttonSignOut"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Sign Out" />
 
         <Button
             android:id="@+id/buttonLiveChat"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Join the Discussion" />
 

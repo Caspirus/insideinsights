@@ -22,19 +22,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChatRoom"
-            android:windowSoftInputMode="stateHidden|adjustPan"/>
-        <activity android:name=".ChatSelect"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".FrontPage"
-            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".ChatRoom"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".ChatSelect"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".FrontPage"
+            android:windowSoftInputMode="stateHidden" />
         <activity android:name=".KnowledgeBase" />
         <activity android:name=".CurrentEvent" />
         <activity android:name=".Ideology" />
-        <activity android:name=".Registration"
-            android:windowSoftInputMode="stateHidden|adjustPan"/>
-        <activity android:name=".AboutUs">
-        </activity>
+        <activity
+            android:name=".Registration"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".AboutUs"></activity>
+        <activity android:name=".Profile"></activity>
     </application>
 
 </manifest>
